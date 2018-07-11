@@ -1,0 +1,155 @@
+EXERCISE 1 (WEEK2): PSEUDOCODE & ALGORITHM
+
+//-------------------------------------------------------------------------------
+//*note: Demi simplicity dari jawaban pertanyaan dalam algorithm dan pseudocode,
+//semua algorithm dan pseudocode dilakukan tanpa adanya sanity-check terhadap:
+//inputan-inputan aneh atau yg tidak sesuai dg jenis / kapasitas yg seharusnya.
+//-------------------------------------------------------------------------------
+
+#1. Newton Second Law
+JAWABAN:
+//Dengan asumsi 2 m/s2 adalah percepatan setelah ketiga orang mendorong bersama
+//(karena jika 2 m/s2 adalah percepatan masing-masing orang maka resultan gaya
+//dan resultan percepatan bergantung pada massa masing-masing orang,
+//yg mana tidak diketahui);
+
+ALGORITHM
+1.	Minta "masukan untuk massa-mobil dalam kg: " //(atau set massa-mobil = 600);
+2.	Minta "masukan untuk percepatan dalam m/s2: " //(atau set percepatan = 2);
+3.	Minta "jumlah orang yg mendorong: " //(atau set jumlah-orang = 3);
+4.	Hitung F = massa-mobil * percepatan;
+5.	Tampilkan “besaran gaya = ” dan variable F;
+6.	Hitung F-perorang = F / jumlah-orang;
+7.	Tampilkan “besaran gaya rata-rata per orang =” dan variable F-perorang;
+
+PSEUDOCODE
+  SET variable `F` to any numeric value;
+  SET variable `massa-mobil` to any numeric value;
+  SET variable `percepatan` to any numeric value;
+  SET variable `jumlah-orang` to any numeric value;
+  SET variable `F-perorang` to any numeric value;
+  READ the massa mobil input and SAVE to `massa-mobil`;  //or SET `massa-mobil` to 600;
+  READ the percepatan input and SAVE to `percepatan`;  // or SET `percepatan` to 2;
+  READ the jumlah orang input and SAVE to `jumlah-orang`;  // or SET `jumlah-orang` to 3;
+  CALCULATE `F` = `massa-mobil` * `percepatan`;
+  DISPLAY `F`
+  CALCULATE `F-perorangan` = `F` / `jumlah orang`;
+  DISPLAY `F-perorangan`;
+
+//-------------------------------------------------------------------------------
+
+#2. TAHUN KABISAT
+
+ALGORITHM
+1.  Minta inputan untuk tahun agar bisa di periksa apakah leapyear atau bukan;
+2.  Jika tahun tidak habis dibagi 100, namun habis dibagi 4, kabisat = true;
+3.  Jika tahun habis dibagi 100 dan habis dibagi 400, kabisat = true;
+4.  Selainnya bukan leapyear (kabisat = false);
+5.  Tampilkan kabisat;
+
+PSEUDOCODE
+  SET variable `tahun` to any numeric value;
+  SET variable `kabisat` to any boolean value;
+  READ year input and SAVE to `tahun`;
+  IF `tahun` modulus 100 is not 0 AND `tahun` modulus 4 is 0 THEN
+    SET `kabisat` to true;
+  ESLE IF `tahun` modulus 100 is 0 AND `tahun` modulus 400 is 0 THEN
+    SET `kabisat` to true;
+  ELSE
+    SET `kabisat` to false;
+  END IF;
+   DISPLAY `kabisat`;
+
+//-------------------------------------------------------------------------------
+
+#3. LAUNDRY DAY
+
+//DIKETAHUI:
+//jumlah total pakaian Foxie = 20;
+//mesin baru jalan jika semua pakaian telah masuk;
+
+//DIMINTA:
+//Hitung jumlah pakaian yg akan dimasukkan ke mesin cuci; menggunakan perulangan;
+
+ALGORITHM
+0.  Siapkan variable totalbaju = 20 , dan jumlah-pakian-yg-dimasukkan
+1.  Sementara jumlah-pakaian-yg-dimasukkan lebih kecil dari totalbaju:
+      Terus masukkan baju ke mesin cuci;
+2.  Jalankan mesin cuci;
+
+PSEUDOCODE
+  SET `totalbaju` to 20;
+  SET `jumlah-pakaian-yg-dimasukkan` to any numeric value;
+  WHILE `jumlah-pakaian-yg-dimasukkan` is lesser than `totalbaju`:
+    ADD one to `jumlah-pakaian-yg dimasukkan`; //dg asumsi setiap penambahan adalah representatif dari FOXIE menambah baju ke dalam mesin cuci;
+  ENDWHILE;
+  RUN the mesin cuci;
+
+//-------------------------------------------------------------------------------
+
+#4. PERIKSA KUKU
+
+//DIKETAHUI:
+//jumlah total siswa = 40 orang;
+//pemeriksaan satu per satu;
+//kuku-panjang = hukum; kuku-pendek = pujian;
+
+//ASUMSI:
+//Karena kompute hanya bisa kalkulasi parameter yg bisa diukur
+//(dan karena materi pelajaran belum sentuh machine learning)
+//maka diasumsikan kondisi:
+//kuku dianggap panjang apabila bagian putih lebih dari 2 mm,
+//selebihnya kuku dianggap pendek;
+
+ALGORITHM:
+0.  Siapkan variable jumlah-siswa = 40, max-panjang-putih-kuku = 2 mm, dan panjang-putih-kuku;
+1.  Dari siswa pertama sampai siswa terakhir, masing-masing:
+      Periksa panjang bagian putih kuku;
+      Bila panjang-putih-kuku > 2 mm:
+        Beri hukuman;
+      Jika tidak:
+        Beri pujian;
+
+PSEUDOCODE:
+  SET variable `jumlah-siswa` to 40;
+  SET variable `max-panjang-putih-kuku` to 2 mm;
+  SET variable `panjang-putih-kuku` to any numeric value;
+  SET `nomor-urut-siswa` to 1;
+  FOR each `nomor-urut-siswa` until `jumlah-siswa`;
+    READ panjang bagian putih kuku in mm and SAVE to `panjang-putih-kuku`;
+    IF `panjang-putih-kuku` is longer than `max-panjang-putih-kuku` THEN:
+      DISPLAY "hukuman";
+    ELSE
+      DISPLAY "pujian";
+    END IF
+    INCREMENT `nomor-urut-siswa`
+  END FOR
+
+
+//-------------------------------------------------------------------------------
+// cara penulisan FOR ini berdasarkan http://users.csc.calpoly.edu/~jdalbey/SWE/pdl_std.html
+// bagian sample pseudocode, contoh pertama. [yg mana incremental ditaruh diluar loop].
+//
+//"Adequate"
+//FOR X = 1 to 10
+//    FOR Y = 1 to 10
+//        IF gameBoard[X][Y] = 0
+//            Do nothing
+//        ELSE
+//            CALL theCall(X, Y) (recursive method)
+//            increment counter
+//        END IF
+//    END FOR
+//END FOR
+//
+//"Better"
+//Set moveCount to 1
+//FOR each row on the board
+//    FOR each column on the board
+//        IF gameBoard position (row, column) is occupied THEN
+//            CALL findAdjacentTiles with row, column
+//            INCREMENT moveCount
+//        END IF
+//    END FOR
+//END FOR
+//-------------------------------------------------------------------------------
